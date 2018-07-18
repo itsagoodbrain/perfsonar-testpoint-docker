@@ -1,17 +1,9 @@
 # perfSONAR Testpoint
 
-FROM centos:centos7
-MAINTAINER perfSONAR <perfsonar-user@perfsonar.net>
+FROM jproc/perfsonar-tools-docker:nightly
+MAINTAINER jproc <jproc@umich.edu>
 
 RUN yum -y install \
-    # epel-release repo
-    epel-release \
-    # perfSONAR release repo
-    http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm && \
-    # reload the cache for the new repos
-    yum clean expire-cache && \
-    yum -y install perfSONAR-repo-nightly && \
-    yum clean expire-cache && \
     # install testpoint bundle and required tools for docker image
     yum -y install \
     perfsonar-testpoint \
