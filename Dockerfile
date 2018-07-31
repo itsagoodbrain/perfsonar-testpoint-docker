@@ -8,10 +8,8 @@ RUN yum -y install \
     epel-release \
     # perfSONAR release repo
     http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm \
-    http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-staging-0.8-1.noarch.rpm && \
+    http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-nightly-0.8-1.noarch.rpm  && \
     # reload the cache for the new repos
-    yum clean expire-cache && \
-    yum -y install perfSONAR-repo-nightly && \
     yum clean expire-cache && \
     # install testpoint bundle and update required tools for docker image
     yum -y install \
