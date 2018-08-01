@@ -7,13 +7,9 @@ RUN yum -y install \
     # install testpoint bundle and update required tools for docker image
     yum -y install \
     perfsonar-testpoint \
-    supervisor \
     rsyslog \
-    net-tools\
-    sysstat \
     iproute \
-    bind-utils \
-    tcpdump && \
+    bind-utils && \
     # clean up
     yum clean all && \
     rm -rf /var/cache/yum/*
@@ -72,7 +68,6 @@ COPY ["rsyslog/listen.conf", \
       "/etc/rsyslog.d/"]
 
 # Supervisor
-RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisord.conf
 
 #
